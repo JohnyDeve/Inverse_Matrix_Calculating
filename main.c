@@ -81,7 +81,84 @@ static double *getloc(double *matrix, size_t i, size_t j, size_t W)
 
 static int get_inv_matrix(double *A, double *L, double *U, size_t H, size_t W)
 {
-        //TODO
+        if (H != W)
+        {
+                return 1;
+        }
+
+        for (size_t i = 0; i < W; i++)
+        {
+                *GETLOC(L, i, i, W) = 1.0;
+        }
+
+        double weights_sum = 0.0;
+        for (size_t i = 0; i < W; i++)
+        {
+                for (size_t k = i; k < W; k++)
+                {
+                        weights_sum = 0.0;
+                        for (size_t j = 0; j < i; j++)
+                        {
+                                weights_sum += (*GETLOC(L, i, j, W) * *GETLOC(U, j, k, W));
+                        }
+                        *GETLOC(U, i, k, W) = *GETLOC(A, i, k, W) - weights_sum;
+                }
+
+                for (size_t k = i; k < W; k++)
+                {
+                        weights_sum = 0.0;
+                        for (size_t j = 0; j < i; j++)
+                        {
+                                weights_sum += (*GETLOC(L, k, j, W) * *GETLOC(U, j, i, W));
+                        }
+                        *GETLOC(L, k, i, W) = (*GETLOC(A, k, i, W) - weights_sum) / *GETLOC(U, i, i, W);
+                }
+        }
+
+        for (size_t i = 0; i < W; i++)
+        {
+                if (*GETLOC(U, i, i, W) == 0.0)
+                {
+                        return 1;
+                }
+        }
+
+        for (size_t i = 0; i < W; i++)
+        {
+                for (size_t j = 0; j < W; j++)
+                {
+                        *GETLOC(A, i, j, W) = (i == j) ? 1.0 : 0.0;
+
+                        if (i == 0)
+                        {
+                                continue;
+                        }
+                        weights_sum = 0.0;
+                        for (size_t k = 0; k < i; k++)
+                        {
+                                weights_sum += (*GETLOC(L, i, k, W) * *GETLOC(A, k, j, W));
+                        }
+                        *GETLOC(A, i, j, W) -= weights_sum;
+                }
+        }
+
+        for (size_t i = W; i-- > 0;)
+        {
+                for (size_t j = 0; j < W; j++)
+                {
+                        *GETLOC(L, i, j, W) = *GETLOC(A, i, j, W);
+                        if (i != W - 1)
+                        {
+                                weights_sum = 0.0;
+                                for (size_t k = i + 1; k < W; k++)
+                                {
+                                        weights_sum += (*GETLOC(U, i, k, W) * *GETLOC(L, k, j, W));
+                                }
+                        }
+                        *GETLOC(L, i, j, W) = (*GETLOC(L, i, j, W) - weights_sum) / (*GETLOC(U, i, i, W));
+                }
+        }
+
         return 0;
 }
 
