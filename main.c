@@ -87,8 +87,17 @@ static int get_inv_matrix(double *A, double *L, double *U, size_t H, size_t W)
 
 int read_filedata(double *mat, FILE *input_file, size_t W, size_t H)
 {
-        //TODO
-        return 0;
+        for (size_t i = 0; i < H; i++)
+        {
+                for (size_t j = 0; j < W; j++)
+                {
+                        if (fscanf(input_file, "%lf", GETLOC(mat, i, j, W)) != 1)
+                        {
+                                return 1;
+                        }
+                }
+        }
+        return SUCCESS;
 }
 
 int write_filedata(double *mat, FILE *output_file, size_t W, size_t H)
