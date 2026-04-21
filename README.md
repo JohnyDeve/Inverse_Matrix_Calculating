@@ -1,1 +1,56 @@
-# Inverse_Matrix_Calculating
+# Matrix Inverter (C implementation)
+
+A professional-grade C utility designed to calculate the inverse of a square matrix using **LU Decomposition**. The project focuses on reliability, strict resource management, and robust error handling.
+
+## Core Features
+
+*   **Algorithm**: Utilizes LU Decomposition instead of the standard Gauss-Jordan elimination, providing an efficient approach for dense matrices.
+*   **Resource Management**: Implements the `Context` pattern (an approach similar to RAII). All dynamic allocations and file descriptors are encapsulated within a single structure, ensuring no memory leaks even when a critical error occurs.
+*   **Error Handling**: Built on a centralized status code table. In the event of a failure, the program gracefully shuts down via `clear_context`, reporting a specific error message and detailed comments to `stderr`.
+
+## Data Format
+
+The program processes plain text files.
+
+**Input File (`input.txt`):**
+The first line must contain two integers: `height` and `width`. These are followed by the matrix elements.
+```text
+3 3
+1 2 3
+0 1 4
+5 6 0
+```
+
+**Output File (`output.txt`):**
+Contains the resulting inverse matrix or the message `Inverse matrix does not exist` if the matrix is singular (non-invertible).
+
+## Build and Usage
+
+To build the project, use any standard C compiler (GCC/Clang):
+
+```bash
+gcc main.c -o matrix_inverter
+```
+
+**Execution:**
+```bash
+./matrix_inverter input.txt output.txt
+```
+
+## Technical Overview
+
+### Error Reporting
+The program uses a structured error-handling system. Each state corresponds to an entry in the `status_message_table`.
+Example `stderr` output:
+> `Error: [Memory Allocation Failed] - Unable to allocate memory for LU-decomposition matrix.`
+
+### The Context Structure
+```c
+typedef struct {
+    FILE *input;
+    FILE *output;
+    double *data;
+    // Other resources
+} Context;
+```
+This architecture allows for centralized resource cleanup in the `clear_context(Context *ctx)` function. This keeps the business logic clean and avoids "if-else nests" when managing pointers and file handles.
