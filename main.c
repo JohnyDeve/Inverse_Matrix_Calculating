@@ -85,6 +85,18 @@ static int get_inv_matrix(double *A, double *L, double *U, size_t H, size_t W)
         return 0;
 }
 
+int read_filedata(double *mat, FILE *input_file, size_t W, size_t H)
+{
+        //TODO
+        return 0;
+}
+
+int write_filedata(double *mat, FILE *output_file, size_t W, size_t H)
+{
+        //TODO
+        return 0;
+}
+
 int main(int argc, char *argv[])
 {
         if (argc != 3)
