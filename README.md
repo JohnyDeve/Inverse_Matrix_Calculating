@@ -52,7 +52,7 @@ gcc main.c -o matrix_inverter
 ### Error Reporting
 The program uses a structured error-handling system. Each state corresponds to an entry in the `status_message_table`.
 Example `stderr` output:
-> `Error: [Memory Allocation Failed] - Unable to allocate memory for LU-decomposition matrix.`
+> `[ERROR]: Executor cannot allocate memory`
 
 ### The Context Structure
 ```c
