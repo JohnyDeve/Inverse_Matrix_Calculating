@@ -68,9 +68,8 @@ typedef struct
 This architecture allows for centralized resource cleanup in the `clear_context(Context *ctx)` function. 
 This keeps the business logic clean and avoids "if-else nests" when managing pointers and file handles.
 
-## Roadmap & Future Improvements
+## Future Improvements
 While the current version is fully functional and stable, the following features are planned for future releases:
-- [ ] Support for binary file formats for faster I/O.
 - [ ] Multithreading support for large-scale matrices using POSIX threads.
 - [ ] SIMD optimization for the LU decomposition core.
 
