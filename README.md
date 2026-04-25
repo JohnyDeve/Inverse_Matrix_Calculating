@@ -1,5 +1,5 @@
 ![](https://img.shields.io/badge/TEXT-HEX-COLOR?style=for-the-badge&logo=с&logoColor=#A8B9CC)
-![](https://img.shields.io/badge/github-repo-blue?logo=github)
+![](https://img.shields.io/badge/github-repo-blue?logo=c)
 ![License](https://shields.io)
 ![Build](https://shields.io)
 ![Repo Size](https://shields.io)
