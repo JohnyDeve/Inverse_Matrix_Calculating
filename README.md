@@ -1,5 +1,3 @@
-![](https://img.shields.io/badge/TEXT-HEX-COLOR?style=for-the-badge&logo=с&logoColor=#A8B9CC)
-![](https://img.shields.io/badge/github-repo-blue?logo=c)
 [![C Language](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)](https://wikipedia.org)
 ![License](https://shields.io)
 ![Build](https://shields.io)
@@ -86,5 +84,21 @@ Please ensure that any new code follows the existing `Context`-based error handl
 
 ## License
 This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for more details. 
+---
+## Contacts & Support
 
-Developed with focus on efficiency and reliability by [Kuzyakin Ivan/JohnyDeve].
+### Author
+**Your Name** — C Developer & System Architect  
+Feel free to reach out for collaboration or questions regarding the implementation.
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/JohnyDeve)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/ivan-kuzyakin-1010011100000001010000110000101011011)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/kuzak1n)
+
+### Support the Project
+If this tool helped you or saved you some time, you can support its further development:
+
+[![DonationAlerts](https://img.shields.io/badge/D%20Donation%20Alerts?style=for-the-badge&labelColor=f57607)](https://www.donationalerts.com/r/kuzakinc)
+
+---
+*Maintained with precision and care.*
